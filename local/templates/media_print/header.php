@@ -44,24 +44,24 @@ use Bitrix\Main\Page\Asset;
                     <!-- Компонент нав-бара -->
                     <?
                         $APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	"nav", 
-	array(
-		"ALLOW_MULTI_SELECT" => "N",
-		"CHILD_MENU_TYPE" => "left",
-		"DELAY" => "N",
-		"MAX_LEVEL" => "1",
-		"MENU_CACHE_GET_VARS" => array(
-		),
-		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_TYPE" => "N",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"ROOT_MENU_TYPE" => "top",
-		"USE_EXT" => "N",
-		"COMPONENT_TEMPLATE" => "nav"
-	),
-	false
-);
+                            "bitrix:menu",
+                            "nav",
+                            array(
+                                "ALLOW_MULTI_SELECT" => "N",
+                                "CHILD_MENU_TYPE" => "left",
+                                "DELAY" => "N",
+                                "MAX_LEVEL" => "1",
+                                "MENU_CACHE_GET_VARS" => array(
+                                ),
+                                "MENU_CACHE_TIME" => "3600",
+                                "MENU_CACHE_TYPE" => "N",
+                                "MENU_CACHE_USE_GROUPS" => "Y",
+                                "ROOT_MENU_TYPE" => "top",
+                                "USE_EXT" => "N",
+                                "COMPONENT_TEMPLATE" => "nav"
+                            ),
+                            false
+                        );
                     ?>
 
                     <!-- Компонент формы поиска -->
@@ -78,6 +78,7 @@ use Bitrix\Main\Page\Asset;
 
                     <!-- Компонент заказа звонка -->
                     <div class="header__info">
+                        <!-- Область контактного телефона -->
                         <?
                             $APPLICATION->IncludeComponent(
                                 "bitrix:main.include",
@@ -90,6 +91,7 @@ use Bitrix\Main\Page\Asset;
                                 )
                             );
                         ?>
+                        <!-- Область графика работы -->
                         <?
                             $APPLICATION->IncludeComponent(
                                 "bitrix:main.include",

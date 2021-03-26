@@ -2,29 +2,106 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 use Bitrix\Main\Page\Asset;
 ?>
-            <footer class="footer">
-                <div class="container-sm">
-                    <div class="footer__container">
-                        <div class="footer-left">
+                <footer class="footer">
+                    <div class="container-sm">
+                        <div class="footer__container">
+                            <div class="footer-left">
+                                <div class="footer__contacts">
+                                    <h4 class="footer__contacts-title">Контакты</h4>
+
+                                    <!-- Область контактного телефона -->
+                                    <?
+                                        $APPLICATION->IncludeComponent(
+                                            "bitrix:main.include",
+                                            "",
+                                            Array(
+                                                "AREA_FILE_SHOW" => "file",
+                                                "AREA_FILE_SUFFIX" => "inc",
+                                                "EDIT_TEMPLATE" => "",
+                                                "PATH" => "/include/contact_phone.php"
+                                            )
+                                        );
+                                    ?>
+
+                                    <div class="tooltip">
+                                        <!-- Область контактного email'a -->
+                                        <?
+                                            $APPLICATION->IncludeComponent(
+                                                "bitrix:main.include",
+                                                "",
+                                                Array(
+                                                    "AREA_FILE_SHOW" => "file",
+                                                    "AREA_FILE_SUFFIX" => "inc",
+                                                    "EDIT_TEMPLATE" => "",
+                                                    "PATH" => "/include/contact_email.php"
+                                                )
+                                            );
+                                        ?>
+                                        <span class="tooltiptext" data-event="copyEmailTooltip">
+                                            При нажатии будет скопировано в буфер обмена
+                                        </span>
+                                    </div>
+
+                                    <span class="footer__worktime">
+                                        <!-- Область графика работы -->
+                                        <?
+                                            $APPLICATION->IncludeComponent(
+                                                "bitrix:main.include",
+                                                "",
+                                                Array(
+                                                    "AREA_FILE_SHOW" => "file",
+                                                    "AREA_FILE_SUFFIX" => "inc",
+                                                    "EDIT_TEMPLATE" => "",
+                                                    "PATH" => "/include/working_time.php"
+                                                )
+                                            );
+                                        ?>
+                                    </span>
+
+
+                                    <div class="primary-btn footer__callback-button" data-popup-selector="#js-callback-popup">
+                                        Заказать звонок
+                                    </div>
+                                </div>
                             <div class="footer__contacts">
-                                <h4 class="footer__contacts-title">Контакты</h4><a class="footer__phone" href="tel:88004815162">8 800 481 51 62</a><div class="tooltip"><a class="footer__email" data-event="copyEmail" href="#" data-value="mailto:inna@print-m.ru">inna@print-m.ru</a><span class="tooltiptext" data-event="copyEmailTooltip">При нажатии будет скопировано в буфер обмена</span>
-                                </div><span class="footer__worktime">пн-пт:  9:00–18:00</span>
-                                <div class="primary-btn footer__callback-button" data-popup-selector="#js-callback-popup">Заказать звонок</div>
+                                <a class="footer__payment-title" href="./checkout.html">
+                                    Способы оплаты
+                                </a>
+                                <a class="footer__payment-link" href="./checkout.html">Visa</a>
+                                <a class="footer__payment-link" href="./checkout.html">Mastercard</a>
+                                <a class="footer__payment-link" href="./checkout.html">Qiwi</a>
+                                <a class="footer__payment-link" href="./checkout.html">Яндекс.Деньги</a>
+                                <a class="footer__payment-link" href="./checkout.html">Альфа-клик</a></div>
+                                <div class="footer__info">
+                                    <!-- Область копирайта -->
+                                    <?
+                                        $APPLICATION->IncludeComponent(
+                                            "bitrix:main.include",
+                                            "",
+                                            Array(
+                                                "AREA_FILE_SHOW" => "file",
+                                                "AREA_FILE_SUFFIX" => "inc",
+                                                "EDIT_TEMPLATE" => "",
+                                                "PATH" => "/include/footer_secure.php"
+                                            )
+                                        );
+                                    ?>
+                                    <a class="footer__author" href="#" target="_blank" rel="noopener noreferrer"> </a>
+                                </div>
                             </div>
-                            <div class="footer__contacts"><a class="footer__payment-title" href="./checkout.html">Способы оплаты</a><a class="footer__payment-link" href="./checkout.html">Visa</a><a class="footer__payment-link" href="./checkout.html">Mastercard</a><a class="footer__payment-link" href="./checkout.html">Qiwi</a><a class="footer__payment-link" href="./checkout.html">Яндекс.Деньги</a><a class="footer__payment-link" href="./checkout.html">Альфа-клик</a></div>
-                            <div class="footer__info">
-                                <div class="footer__secure">© ООО "Принт Медиа Групп", 2019. Все права защищены.</div><a class="footer__author" href="#" target="_blank" rel="noopener noreferrer"> </a>
-                            </div>
-                        </div>
-                        <div class="footer-right">
-                            <div class="footer__projects">
-                                <h4 class="footer__projects-title">Последние работы в Instagram</h4>
-                                <div class="footer__projects-list"><a class="footer__projects-item" href="#" target="_blank" rel="noopener noreferrer"></a><a class="footer__projects-item" href="#" target="_blank" rel="noopener noreferrer"></a><a class="footer__projects-item" href="#" target="_blank" rel="noopener noreferrer"></a></div>
+                            <div class="footer-right">
+                                <div class="footer__projects">
+                                    <h4 class="footer__projects-title">Последние работы в Instagram</h4>
+                                    <div class="footer__projects-list">
+                                        <a class="footer__projects-item" href="#" target="_blank" rel="noopener noreferrer"></a>
+                                        <a class="footer__projects-item" href="#" target="_blank" rel="noopener noreferrer"></a>
+                                        <a class="footer__projects-item" href="#" target="_blank" rel="noopener noreferrer"></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
             </div>
             <div class="callback-popup" id="js-callback-popup">
                 <div class="primary-form callback-popup__body">
