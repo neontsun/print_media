@@ -28,7 +28,18 @@ use Bitrix\Main\Page\Asset;
                 <div class="container header__container">
 
                     <!-- Логотип -->
-                    <a class="header__logo" href="/"></a>
+                    <?
+                        $APPLICATION->IncludeComponent(
+                            "bitrix:main.include",
+                            "",
+                            Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "AREA_FILE_SUFFIX" => "inc",
+                                "EDIT_TEMPLATE" => "",
+                                "PATH" => "/include/logo.php"
+                            )
+                        );
+                    ?>
 
                     <!-- Компонент нав-бара -->
                     <?
@@ -67,8 +78,30 @@ use Bitrix\Main\Page\Asset;
 
                     <!-- Компонент заказа звонка -->
                     <div class="header__info">
-                        <a class="header__info-phone" href="tel:88004815162">8 800 481 51 62</a>
-                        <span class="header__info-worktime">пн-пт:  9:00–18:00</span>
+                        <?
+                            $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/contact_phone.php"
+                                )
+                            );
+                        ?>
+                        <?
+                            $APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "AREA_FILE_SUFFIX" => "inc",
+                                    "EDIT_TEMPLATE" => "",
+                                    "PATH" => "/include/working_time.php"
+                                )
+                            );
+                        ?>
                     </div>
                     <div class="primary-btn header__callback-button" data-popup-selector="#js-callback-popup">
                         Заказать звонок

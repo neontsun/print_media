@@ -1,0 +1,1 @@
+<a href="tel:88004815161" class="header__info-phone">8 800 481 51 61</a>
