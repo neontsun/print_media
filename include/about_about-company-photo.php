@@ -1,0 +1,2 @@
+<figure class="swiper-slide photo__slide"> <img src="https://picsum.photos/300/250" class="photo__img" alt="" srcset=""> <figcaption class="photo__img-desc">Подпись к фотографии</figcaption> </figure>
+<figure class="swiper-slide photo__slide"> <img src="https://picsum.photos/300/250" class="photo__img" alt="" srcset=""> <figcaption class="photo__img-desc">Подпись к фотографии</figcaption> </figure>

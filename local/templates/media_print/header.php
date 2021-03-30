@@ -10,6 +10,9 @@ use Bitrix\Main\Page\Asset;
         <?
             Asset::getInstance()->addString('<meta charset="UTF-8"/>');
             Asset::getInstance()->addString('<meta name="viewport" content="width=device-width, initial-scale=1.0"/>');
+            Asset::getInstance()->addString('<link rel="shortcut icon" 
+                                                   href="' . SITE_TEMPLATE_PATH . '/img/favicon.ico" 
+                                                   type="image/png">');
             Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/css/plugins/swiper.min.css');
             Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/css/plugins/magnific-popup.css');
             Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/css/plugins/selectric.css');
@@ -41,6 +44,22 @@ use Bitrix\Main\Page\Asset;
                         );
                     ?>
 
+                    <script>
+                        const logo = document.querySelectorAll('.header__logo');
+                        logo.forEach(el => {
+                            if (document.documentElement.clientWidth > 1239) {
+                                if (el.classList.length === 2) {
+                                    el.style.display = 'none';
+                                }
+                            }
+                            else {
+                                if (el.classList.length !== 2) {
+                                    el.style.display = 'none';
+                                }
+                            }
+                        });
+                    </script>
+
                     <!-- Компонент нав-бара -->
                     <?
                         $APPLICATION->IncludeComponent(
@@ -64,20 +83,33 @@ use Bitrix\Main\Page\Asset;
                         );
                     ?>
 
-                    <!-- Компонент формы поиска -->
-                    <?
-                        $APPLICATION->IncludeComponent(
-                            "bitrix:search.form",
-                            "search",
-                            Array(
-                                "PAGE" => "#SITE_DIR##",
-                                "USE_SUGGEST" => "N"
-                            )
-                        );
-                    ?>
+                    <form class="header__search" action="">
+                        <div class="header__search-field-wrapper">
+                            
+                            <!-- Компонент поля поиска -->
+                            <?php 
+                            
+                                $APPLICATION->IncludeComponent(
+                                    "bitrix:search.suggest.input",
+                                    "header.search",
+                                    Array(
+                                        "DROPDOWN_SIZE" => "10",
+                                        "INPUT_SIZE" => "15",
+                                        "NAME" => "q",
+                                        "VALUE" => ""
+                                    )
+                                );
+                            
+                            ?>
+                            
+                            <div class="header__search-close"></div>
+                        </div>
+                        <input class="header__search-button" type="submit"/>
+                    </form>
 
                     <!-- Компонент заказа звонка -->
                     <div class="header__info">
+
                         <!-- Область контактного телефона -->
                         <?
                             $APPLICATION->IncludeComponent(
@@ -91,6 +123,21 @@ use Bitrix\Main\Page\Asset;
                                 )
                             );
                         ?>
+
+                        <script>
+                            const contactPhone = document.querySelectorAll('.contact__phone');
+                            const phoneNumber = contactPhone.innerText;
+
+                            contactPhone.href = 'tel:' + phoneNumber;
+
+                            contactPhone.forEach(el => {
+                                if (el.parentNode.parentNode.classList[0] === 'footer__contacts')
+                                    el.classList.add('footer__phone');
+                                else
+                                    el.classList.add('header__info-phone');
+                            });
+                        </script>
+
                         <!-- Область графика работы -->
                         <?
                             $APPLICATION->IncludeComponent(
@@ -104,6 +151,7 @@ use Bitrix\Main\Page\Asset;
                                 )
                             );
                         ?>
+
                     </div>
                     <div class="primary-btn header__callback-button" data-popup-selector="#js-callback-popup">
                         Заказать звонок

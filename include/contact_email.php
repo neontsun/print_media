@@ -1,1 +1,1 @@
-<a data-event="copyEmail" href="#" data-value="mailto:inna@print-m.ru" class="footer__email"> inna@print-m.ru</a>
+<a data-event="copyEmail" href="#" class="footer__email">inna@print-m.rus</a>

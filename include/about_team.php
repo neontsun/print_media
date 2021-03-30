@@ -1,0 +1,1 @@
+<img class="about__section-img" src="<?= SITE_TEMPLATE_PATH; ?>/img/team.png" alt="" srcset=""/>
