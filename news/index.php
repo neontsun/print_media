@@ -6,13 +6,12 @@ $APPLICATION->SetTitle("Новости");
 <div class="news-page">
     <div class="container">
         <h1 class="title news-page__title">Новости и акции</h1>
-        <div class="news-page__items">
 
             <!-- Список новостей -->
             <?
                 $APPLICATION->IncludeComponent(
                     "bitrix:news.list",
-                    "news",
+                    "news.list",
                     array(
                         "ACTIVE_DATE_FORMAT" => "d.m.Y",
                         "ADD_SECTIONS_CHAIN" => "N",
@@ -77,24 +76,6 @@ $APPLICATION->SetTitle("Новости");
                 );
             ?>
 
-            <script>
-                const newsLink = document.querySelectorAll('.news__item');
-                newsLink.forEach(el => {
-                    el.classList.add('news-page__item');
-                });
-            </script>
-
-        </div>
-<!--        <div class="pagination">-->
-<!--            <div class="pagination__btn-prev"></div>-->
-<!--            <div class="pagination__page-numbers">-->
-<!--                <a class="pagination__page-number pagination__page-number--current" href="#">1</a>-->
-<!--                <a class="pagination__page-number" href="#">2</a>-->
-<!--                <a class="pagination__page-number" href="#">3</a>-->
-<!--                <a class="pagination__page-number" href="#">4</a>-->
-<!--                <a class="pagination__page-number" href="#">5</a>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
 </div>
 

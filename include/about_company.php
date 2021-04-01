@@ -28,7 +28,7 @@
             Групп" являются: интерьерная широкоформатная печать, на баннерах, брандмауэрах,
             бэклите и широкоформатная печать, на баннерах и т.д.
         </p>
-        <a class="primary-btn features__link" href="./about.html">
+        <a class="primary-btn features__link" href="/about">
             Узнать больше
         </a>
     </div>

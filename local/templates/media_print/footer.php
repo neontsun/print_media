@@ -108,11 +108,11 @@ use Bitrix\Main\Page\Asset;
                                 <a class="footer__payment-title" href="./checkout.html">
                                     Способы оплаты
                                 </a>
-                                <a class="footer__payment-link" href="./checkout.html">Visa</a>
-                                <a class="footer__payment-link" href="./checkout.html">Mastercard</a>
-                                <a class="footer__payment-link" href="./checkout.html">Qiwi</a>
-                                <a class="footer__payment-link" href="./checkout.html">Яндекс.Деньги</a>
-                                <a class="footer__payment-link" href="./checkout.html">Альфа-клик</a></div>
+                                <a class="footer__payment-link" href="/checkout">Visa</a>
+                                <a class="footer__payment-link" href="/checkout">Mastercard</a>
+                                <a class="footer__payment-link" href="/checkout">Qiwi</a>
+                                <a class="footer__payment-link" href="/checkout">Яндекс.Деньги</a>
+                                <a class="footer__payment-link" href="/checkout">Альфа-клик</a></div>
                                 <div class="footer__info">
                                 
                                     <!-- Область копирайта -->
@@ -149,53 +149,76 @@ use Bitrix\Main\Page\Asset;
             </div>
             <div class="callback-popup" id="js-callback-popup">
                 <div class="primary-form callback-popup__body">
+
                     <div class="primary-form__header callback-popup__header">
-                    <h2 class="primary-form__title callback-popup__title">Заказать звонок</h2>
-                    <div class="callback-popup__close"> </div>
+                        <h2 class="primary-form__title callback-popup__title">Заказать звонок</h2>
+                        <div class="callback-popup__close"> </div>
                     </div>
-                    <form class="primary-form__body form callback-popup__form" action="#">
-                    <div class="primary-form__field-wrapper callback-popup__field-wrapper callback-popup__name">
-                        <label class="primary-form__label callback-popup__label" for="callback-popup__field-name">Имя</label>
-                        <input class="primary-form__field callback-popup__field" type="text" id="callback-popup__field-name"/>
-                    </div>
-                    <div class="primary-form__field-wrapper callback-popup__field-wrapper callback-popup__phone">
-                        <label class="primary-form__label callback-popup__label" for="callback-popup__field-phone">Телефон</label>
-                        <input class="primary-form__field callback-popup__field" type="tel" id="callback-popup__field-phone"/>
-                    </div>
-                    <input class="primary-form__button callback-popup__button" type="submit" value="Отправить заявку" disabled="disabled"/>
-                    </form>
-                    <p class="primary-form__confirm callback-popup__confirm">Нажимая на кнопку «Отправить заявку» вы даёте своё <a class="primary-form__confirm-link callback-popup__confirm-link" href="#">согласие на обработку персональных данных</a></p>
+
+                    <?
+                        $APPLICATION->IncludeComponent(
+                            "bitrix:form.result.new",
+                            "callback",
+                            Array(
+                                "SEF_MODE" => "Y",
+                                "WEB_FORM_ID" => 1,
+                                "LIST_URL" => "",
+                                "EDIT_URL" => "",
+                                "SUCCESS_URL" => "",
+                                "CHAIN_ITEM_TEXT" => "",
+                                "CHAIN_ITEM_LINK" => "",
+                                "IGNORE_CUSTOM_TEMPLATE" => "Y",
+                                "USE_EXTENDED_ERRORS" => "Y",
+                                "CACHE_TYPE" => "A",
+                                "CACHE_TIME" => "3600",
+                                "SEF_FOLDER" => "/",
+                                "VARIABLE_ALIASES" => Array()
+                            )
+                        );
+                    ?>
+
+                    <p class="primary-form__confirm callback-popup__confirm">
+                        Нажимая на кнопку «Отправить заявку» вы даёте своё
+                        <a class="primary-form__confirm-link callback-popup__confirm-link" href="#">
+                            согласие на обработку персональных данных
+                        </a>
+                    </p>
                 </div>
             </div>
             <div class="callback-popup project-popup" id="js-project-popup">
                 <div class="primary-form callback-popup__body">
+
                     <div class="primary-form__header callback-popup__header">
-                    <h2 class="primary-form__title callback-popup__title">Предложить проект</h2>
-                    <div class="callback-popup__close"> </div>
+                        <h2 class="primary-form__title callback-popup__title">Предложить проект</h2>
+                        <div class="callback-popup__close"> </div>
                     </div>
-                    <form class="primary-form__body form callback-popup__form" action="#">
-                    <div class="primary-form__field-wrapper">
-                        <label class="primary-form__label" for="project-popup__field-text">Описание проекта</label>
-                        <textarea class="primary-form__field primary-form__field--textarea" placeholder="Текст вопроса" id="project-popup__field-text"></textarea>
-                    </div>
-                    <div class="primary-form__field-wrapper callback-popup__field-wrapper callback-popup__name">
-                        <label class="primary-form__label callback-popup__label" for="project-popup__field-name">Компания</label>
-                        <input class="primary-form__field callback-popup__field" type="text" id="project-popup__field-name"/>
-                    </div>
-                    <div class="primary-form__field-wrapper callback-popup__field-wrapper callback-popup__name">
-                        <label class="primary-form__label callback-popup__label" for="project-popup__field-email">E-mail</label>
-                        <input class="primary-form__field callback-popup__field" type="text" id="project-popup__field-email"/>
-                    </div>
-                    <div class="primary-form__field-wrapper callback-popup__field-wrapper callback-popup__phone">
-                        <label class="primary-form__label callback-popup__label" for="project-popup__field-phone">Телефон</label>
-                        <input class="primary-form__field callback-popup__field" type="tel" id="project-popup__field-phone"/>
-                    </div>
-                    <input class="primary-form__button callback-popup__button" type="submit" value="Отправить заявку" disabled="disabled"/>
-                    </form>
-                    <p class="primary-form__confirm project-popup__descr">Мы перезваниваем в рабочие дни с&nbsp;9&nbsp;-&nbsp;00&nbsp;до&nbsp;18&nbsp;-&nbsp;00</p>
-                    <p class="primary-form__confirm callback-popup__confirm">Нажимая на кнопку «Отправить заявку» вы даёте своё <a class="primary-form__confirm-link callback-popup__confirm-link" href="#">согласие на обработку персональных данных</a></p>
+
+                    <?
+                        $APPLICATION->IncludeComponent(
+                            "bitrix:form.result.new",
+                            "suggest.project",
+                            Array(
+                                "CACHE_TIME" => "3600",
+                                "CACHE_TYPE" => "A",
+                                "SEF_MODE" => "N",
+                                "WEB_FORM_ID" => "2",
+                                "LIST_URL" => "",
+                                "EDIT_URL" => "",
+                                "SUCCESS_URL" => "",
+                                "CHAIN_ITEM_TEXT" => "",
+                                "CHAIN_ITEM_LINK" => "",
+                                "IGNORE_CUSTOM_TEMPLATE" => "N",
+                                "USE_EXTENDED_ERRORS" => "N",
+                                "AJAX_MODE" => "Y",
+                                "COMPONENT_TEMPLATE" => "suggest.project"
+                            ),
+                            false
+                        );
+                    ?>
+
                 </div>
             </div>
+
             <div class="callback-popup question-popup" id="js-question-popup">
                 <div class="primary-form callback-popup__body">
                     <div class="primary-form__header">
@@ -206,7 +229,8 @@ use Bitrix\Main\Page\Asset;
                         <div class="primary-form__field-wrapper">
                             <label class="primary-form__label" for="question-popup__field-text">Вопрос</label>
                             <textarea class="primary-form__field primary-form__field--textarea" placeholder="Текст вопроса"
-                                      id="question-popup__field-text"></textarea>
+                                      id="question-popup__field-text">
+                            </textarea>
                         </div>
                         <div class="primary-form__field-wrapper callback-popup__field-wrapper callback-popup__name">
                             <label class="primary-form__label callback-popup__label" for="question-popup__field-email">E-mail</label>
@@ -223,7 +247,7 @@ use Bitrix\Main\Page\Asset;
                 </div>
             </div>
             <div class="callback-popup requirements-popup" id="js-requirements-popup">
-    <div class="primary-form callback-popup__body requirements-popup__body">
+                <div class="primary-form callback-popup__body requirements-popup__body">
         <div class="primary-form__header">
             <h3 class="primary-form__title">Полные требования</h3>
             <div class="callback-popup__close"></div>
@@ -259,30 +283,38 @@ use Bitrix\Main\Page\Asset;
             </div>
         </div>
     </div>
-</div>
+            </div>
             <div class="callback-popup question-popup" id="js-request-popup">
-    <div class="primary-form callback-popup__body">
-        <div class="primary-form__header">
-            <h3 class="primary-form__title">Оставить заявку</h3>
-            <div class="callback-popup__close"> </div>
-        </div>
-        <form class="primary-form__body">
-            <div class="primary-form__field-wrapper callback-popup__field-wrapper callback-popup__name">
-                <label class="primary-form__label callback-popup__label" for="question-popup__field-email">E-mail</label>
-                <input class="primary-form__field callback-popup__field" type="email" id="question-popup__field-email"/>
+                <div class="primary-form callback-popup__body">
+
+                    <div class="primary-form__header">
+                        <h3 class="primary-form__title">Оставить заявку</h3>
+                        <div class="callback-popup__close"> </div>
+                    </div>
+
+                    <form class="primary-form__body">
+                        <div class="primary-form__field-wrapper callback-popup__field-wrapper callback-popup__name">
+                            <label class="primary-form__label callback-popup__label" for="question-popup__field-email">E-mail</label>
+                            <input class="primary-form__field callback-popup__field" type="email" id="question-popup__field-email"/>
+                        </div>
+                        <div class="primary-form__field-wrapper">
+                            <label class="primary-form__label" for="question-popup__field-phone">Телефон</label>
+                            <input class="primary-form__field" type="tel" id="question-popup__field-phone"/>
+                        </div>
+                        <div class="primary-form__field-wrapper">
+                            <textarea class="primary-form__field primary-form__field--textarea" placeholder="Текст заявки" id="question-popup__field-text"></textarea>
+                        </div>
+                        <input class="primary-form__button" type="submit" value="Отправить заявку" disabled="disabled"/>
+                    </form>
+
+                    <p class="primary-form__confirm">
+                        Нажимая на кнопку «Отправить заявку» вы даёте своё
+                        <a class="primary-form__confirm-link" href="#">
+                            согласие на обработку персональных данных
+                        </a>
+                    </p>
+                </div>
             </div>
-            <div class="primary-form__field-wrapper">
-                <label class="primary-form__label" for="question-popup__field-phone">Телефон</label>
-                <input class="primary-form__field" type="tel" id="question-popup__field-phone"/>
-            </div>
-            <div class="primary-form__field-wrapper">
-                <textarea class="primary-form__field primary-form__field--textarea" placeholder="Текст заявки" id="question-popup__field-text"></textarea>
-            </div>
-            <input class="primary-form__button" type="submit" value="Отправить заявку" disabled="disabled"/>
-        </form>
-        <p class="primary-form__confirm">Нажимая на кнопку «Отправить заявку» вы даёте своё <a class="primary-form__confirm-link" href="#">согласие на обработку персональных данных</a></p>
-    </div>
-</div>
         </div>
         
         <?php

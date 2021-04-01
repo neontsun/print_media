@@ -13,14 +13,22 @@
 $this->setFrameMode(true);
 ?>
 
-<?php foreach ($arResult as $arItem): ?>
+<div class="sidemenu catalog__sidemenu js-scroll" data-sidemenu-page="catalog">
 
-	<div class="sidemenu__item catalog__sidemenu-item">
-		<a class="sidemenu__link catalog__sidemenu-link"
-				href="#">
-				<?= $arItem; ?>
-		</a>
-		<div class="sidemenu__subsidemenu catalog__subsidemenu"></div>
-	</div>
+    <div class="js-scroll-wrapper">
 
-<?php endforeach; ?>
+        <?php foreach ($arResult as $arItem): ?>
+
+            <div class="sidemenu__item catalog__sidemenu-item">
+                <a class="sidemenu__link catalog__sidemenu-link"
+                   href="#">
+                    <?= $arItem; ?>
+                </a>
+                <div class="sidemenu__subsidemenu catalog__subsidemenu"></div>
+            </div>
+
+        <?php endforeach; ?>
+
+    </div>
+
+</div>

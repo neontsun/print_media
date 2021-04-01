@@ -11,10 +11,9 @@
             <? if ($index < 4): ?>
 
                 <li class="header__nav-item">
-                    <a
-                            class="header__nav-link"
-                            href="<?=$arItem["LINK"]?>">
-                        <?=$arItem["TEXT"]?>
+                    <a class="header__nav-link"
+                       href="<?= $arItem["LINK"]; ?>">
+                        <?= $arItem["TEXT"]; ?>
                     </a>
                 </li>
 
@@ -36,14 +35,12 @@
                     <? $index = 0; ?>
                     <? foreach($arResult as $arItem): ?>
 
-                        <? if ($arParams["MAX_LEVEL"] == 1 && $arItem["DEPTH_LEVEL"] > 1) continue; ?>
-
                         <? if ($index >= 4): ?>
 
                             <li class="header__nav-item header__nav-item--included">
                                 <a class="header__nav-link header__nav-link--included"
-                                   href="<?=$arItem["LINK"]?>">
-                                    <?=$arItem["TEXT"]?>
+                                   href="<?= $arItem["LINK"]; ?>">
+                                    <?= $arItem["TEXT"]; ?>
                                 </a>
                             </li>
 

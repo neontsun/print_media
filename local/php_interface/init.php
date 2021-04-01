@@ -2,6 +2,8 @@
 
 function pretty($data) {
 
-    echo '<pre>' . var_dump($data) . '</pre>';
+    echo '<pre>';
+    echo var_dump($data);
+    echo '</pre>';
 
 }

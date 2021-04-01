@@ -47,4 +47,5 @@ $APPLICATION->SetTitle("Вопросы");
         </div>
     </div>
 
+
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -107,7 +107,6 @@ use Bitrix\Main\Page\Asset;
                         <input class="header__search-button" type="submit"/>
                     </form>
 
-                    <!-- Компонент заказа звонка -->
                     <div class="header__info">
 
                         <!-- Область контактного телефона -->
